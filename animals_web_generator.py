@@ -13,11 +13,13 @@ def output_data():
     output = ""
     for animal in range(len(animals)):
         output += '<li class="cards__item">'
+
         try:
-            output += f"\nName: {animals[animal]["name"]}<br/>\n"
-            output += f"Diet: {animals[animal]["characteristics"]["diet"]}<br/>\n"
-            output += f"Location: {animals[animal]["locations"][0]}<br/>\n"
-            output += f"Type: {animals[animal]["characteristics"]["type"]}<br/>\n"
+            output += f"<div class='card__title'> {animals[animal]["name"]}<br/>"
+            output += "<p class='card__text'>"
+            output += f"<strong>Diet:</strong> {animals[animal]["characteristics"]["diet"]}<br/>\n"
+            output += f"<strong>Location:</strong> {animals[animal]["locations"][0]}<br/>\n"
+            output += f"<strong>Type:</strong> {animals[animal]["characteristics"]["type"]}<br/>\n"
         except KeyError:
             pass
         output += "</li>"
