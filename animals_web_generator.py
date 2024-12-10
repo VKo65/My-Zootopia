@@ -12,13 +12,15 @@ with open("animals_template.html", "r") as file:
 def output_data():
     output = ""
     for animal in range(len(animals)):
+        output += '<li class="cards__item">'
         try:
-            output += f"\nName: {animals[animal]["name"]}\n"
-            output += f"Diet: {animals[animal]["characteristics"]["diet"]}\n"
-            output += f"Location: {animals[animal]["locations"][0]}\n"
-            output += f"Type: {animals[animal]["characteristics"]["type"]}\n"
+            output += f"\nName: {animals[animal]["name"]}<br/>\n"
+            output += f"Diet: {animals[animal]["characteristics"]["diet"]}<br/>\n"
+            output += f"Location: {animals[animal]["locations"][0]}<br/>\n"
+            output += f"Type: {animals[animal]["characteristics"]["type"]}<br/>\n"
         except KeyError:
             pass
+        output += "</li>"
     return output
 #print(output_data())
 html_content = html_content.replace("__REPLACE_ANIMALS_INFO__", output_data())
